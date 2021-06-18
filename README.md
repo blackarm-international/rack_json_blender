@@ -10,9 +10,9 @@
 > python3 upload_racks.py final.json
 
 ## rack rotation
-0 - facing -Y
-1 - facing +X
-2 - facing +Y
-3 - facing -X
-
+0 - facing -Y<br/>
+1 - facing +X<br/>
+2 - facing +Y<br/>
+3 - facing -X<br/>
+<br/>
 all of the xyz coordinates in the json and servicenow tables are in blender format for ease of use
