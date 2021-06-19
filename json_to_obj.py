@@ -111,7 +111,7 @@ with open(sys.argv[1], 'r', encoding='utf-8') as json_data:
             face_name = u_rack + "face"
             face_x_min = x_min + 0.2
             face_x_max = x_max - 0.2
-            face_y_min = y_min - 0.2
+            face_y_min = y_min - 0.1
             face_y_max = y_min
             face_z_min = z_min + 0.2
             face_z_max = z_max - 0.2
@@ -122,7 +122,7 @@ with open(sys.argv[1], 'r', encoding='utf-8') as json_data:
         if u_rotation == 1:
             face_name = u_rack + "face"
             face_x_min = x_max
-            face_x_max = x_max + 0.2
+            face_x_max = x_max + 0.1
             face_y_min = y_min + 0.2
             face_y_max = y_max - 0.2
             face_z_min = z_min + 0.2
@@ -136,7 +136,7 @@ with open(sys.argv[1], 'r', encoding='utf-8') as json_data:
             face_x_min = x_min + 0.2
             face_x_max = x_max - 0.2
             face_y_min = y_max
-            face_y_max = y_max + 0.2
+            face_y_max = y_max + 0.1
             face_z_min = z_min + 0.2
             face_z_max = z_max - 0.2
             cuboid(face_name, face_x_min, face_x_max, face_y_min, face_y_max, face_z_min, face_z_max, vert, text, face)
@@ -145,7 +145,7 @@ with open(sys.argv[1], 'r', encoding='utf-8') as json_data:
             face = face + 6
         if u_rotation == 3:
             face_name = u_rack + "face"
-            face_x_min = x_min - 0.2
+            face_x_min = x_min - 0.1
             face_x_max = x_min
             face_y_min = y_min + 0.2
             face_y_max = y_max - 0.2
