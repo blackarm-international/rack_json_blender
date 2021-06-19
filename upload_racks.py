@@ -25,9 +25,20 @@ except:
     print("unable to import upload_racks.json")
     exit()
 try:
-    for rack in snow_data:
-        response = requests.post(api_url, auth=(user, pwd), headers=headers, json=rack)
-        print("{} {}".format(rack["u_rack_name"], response.status_code))
+    for rack_sysid in snow_data:
+        data = {}
+        data["u_room_name"] = "null"
+        data["u_rack_name"] = snow_data[rack_sysid]["u_rack"]
+        data["u_rotation"] = snow_data[rack_sysid]["u_rotation"]
+        data["u_x_center"] = snow_data[rack_sysid]["u_x_center"]
+        data["u_x_size"] = snow_data[rack_sysid]["u_x_size"]
+        data["u_y_center"] = snow_data[rack_sysid]["u_y_center"]
+        data["u_y_size"] = snow_data[rack_sysid]["u_y_size"]
+        data["u_z_center"] = snow_data[rack_sysid]["u_z_center"]
+        data["u_z_size"] = snow_data[rack_sysid]["u_z_size"]
+        data["u_z_unit_start"] = snow_data[rack_sysid]["u_z_unit_start"]
+        response = requests.post(api_url, auth=(user, pwd), headers=headers, json=data)
+        print("{} {}".format(snow_data[rack_sysid]["u_rack"], response.status_code))
 except:
     print("unable to load snow.json")
     exit()
