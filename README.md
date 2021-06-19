@@ -13,9 +13,7 @@ import old.obj into blender
 import old.obj into blender
 
 ## rack rotation
-0 - facing -Y<br/>
-1 - facing +X<br/>
-2 - facing +Y<br/>
-3 - facing -X<br/>
-<br/>
-all of the xyz coordinates in the json and servicenow tables are in blender format for ease of useREADME.md
+0 is facing -Y<br/>
+1 is facing +X<br/>
+2 is facing +Y<br/>
+3 is facing -X<br/>
