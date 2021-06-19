@@ -3,6 +3,76 @@
 import json
 import sys
 
+def cuboid(u_rack, x_min, x_max, y_min, y_max, z_min, z_max, vert, text, face):
+    print("o {}".format(u_rack))
+    print("v {} {} {}".format(x_min, z_min, y_min * -1))
+    print("v {} {} {}".format(x_min, z_max, y_min * -1))
+    print("v {} {} {}".format(x_min, z_min, y_max * -1))
+    print("v {} {} {}".format(x_min, z_max, y_max * -1))
+    print("v {} {} {}".format(x_max, z_min, y_min * -1))
+    print("v {} {} {}".format(x_max, z_max, y_min * -1))
+    print("v {} {} {}".format(x_max, z_min, y_max * -1))
+    print("v {} {} {}".format(x_max, z_max, y_max * -1))
+    print("vt 0.375000 0.000000")
+    print("vt 0.625000 0.000000")
+    print("vt 0.625000 0.250000")
+    print("vt 0.375000 0.250000")
+    print("vt 0.625000 0.500000")
+    print("vt 0.375000 0.500000")
+    print("vt 0.625000 0.750000")
+    print("vt 0.375000 0.750000")
+    print("vt 0.625000 1.000000")
+    print("vt 0.375000 1.000000")
+    print("vt 0.225000 0.500000")
+    print("vt 0.225000 0.750000")
+    print("vt 0.875000 0.500000")
+    print("vt 0.875000 0.750000")
+    print("vn -1.0000 0.0000 0.0000")
+    print("vn 0.0000 0.0000 -1.0000")
+    print("vn 1.0000 0.0000 0.0000")
+    print("vn 0.0000 0.0000 1.0000")
+    print("vn 0.0000 -1.0000 0.0000")
+    print("vn 0.0000 1.0000 0.0000")
+    print("usemtl None")
+    print("s off")
+    #f 1/1/1 2/2/1 4/3/1 3/4/1
+    print("f ", end="")
+    print("{}/{}/{} ".format((vert + 1), (text + 1), (face + 1)), end="")
+    print("{}/{}/{} ".format((vert + 2), (text + 2), (face + 1)), end="")
+    print("{}/{}/{} ".format((vert + 4), (text + 3), (face + 1)), end="")
+    print("{}/{}/{}".format((vert + 3), (text + 4), (face + 1)))
+    #f 3/4/2 4/3/2 8/5/2 7/6/2
+    print("f ", end="")
+    print("{}/{}/{} ".format((vert + 3), (text + 4), (face + 2)), end="")
+    print("{}/{}/{} ".format((vert + 4), (text + 3), (face + 2)), end="")
+    print("{}/{}/{} ".format((vert + 8), (text + 5), (face + 2)), end="")
+    print("{}/{}/{}".format((vert + 7), (text + 6), (face + 2)))
+    #f 7/6/3 8/5/3 6/7/3 5/8/3
+    print("f ", end="")
+    print("{}/{}/{} ".format((vert + 7), (text + 6), (face + 3)), end="")
+    print("{}/{}/{} ".format((vert + 8), (text + 5), (face + 3)), end="")
+    print("{}/{}/{} ".format((vert + 6), (text + 7), (face + 3)), end="")
+    print("{}/{}/{}".format((vert + 5), (text + 8), (face + 3)))
+    #f 5/8/4 6/7/4 2/9/4 1/10/4
+    print("f ", end="")
+    print("{}/{}/{} ".format((vert + 5), (text + 8), (face + 4)), end="")
+    print("{}/{}/{} ".format((vert + 6), (text + 7), (face + 4)), end="")
+    print("{}/{}/{} ".format((vert + 2), (text + 9), (face + 4)), end="")
+    print("{}/{}/{}".format((vert + 1), (text + 10), (face + 4)))
+    #f 3/11/5 7/6/5 5/8/5 1/12/5
+    print("f ", end="")
+    print("{}/{}/{} ".format((vert + 3), (text + 11), (face + 5)), end="")
+    print("{}/{}/{} ".format((vert + 7), (text + 6), (face + 5)), end="")
+    print("{}/{}/{} ".format((vert + 5), (text + 8), (face + 5)), end="")
+    print("{}/{}/{}".format((vert + 1), (text + 12), (face + 5)))
+    #f 8/5/6 4/13/6 2/14/6 6/7/6
+    print("f ", end="")
+    print("{}/{}/{} ".format((vert + 8), (text + 5), (face + 6)), end="")
+    print("{}/{}/{} ".format((vert + 4), (text + 13), (face + 6)), end="")
+    print("{}/{}/{} ".format((vert + 2), (text + 14), (face + 6)), end="")
+    print("{}/{}/{}".format((vert + 6), (text + 7), (face + 6)))
+    print("")
+
 if (len(sys.argv) != 2):
     print("")
     print("this script needs the name of the json file")
@@ -33,84 +103,58 @@ with open(sys.argv[1], 'r', encoding='utf-8') as json_data:
         y_max = u_y_center + (u_y_size / 2)
         z_min = u_z_center - (u_z_size / 2)
         z_max = u_z_center + (u_z_size / 2)
-        print("o {}".format(u_rack))
-        # v 0.000000 4.000000 -2.000000
-        # v 0.000000 5.000000 -2.000000
-        # v 0.000000 4.000000 -3.000000
-        # v 0.000000 5.000000 -3.000000
-        # v 1.000000 4.000000 -2.000000
-        # v 1.000000 5.000000 -2.000000
-        # v 1.000000 4.000000 -3.000000
-        # v 1.000000 5.000000 -3.000000
-        print("v {} {} {}".format(x_min, z_min, y_min * -1))
-        print("v {} {} {}".format(x_min, z_max, y_min * -1))
-        print("v {} {} {}".format(x_min, z_min, y_max * -1))
-        print("v {} {} {}".format(x_min, z_max, y_max * -1))
-        print("v {} {} {}".format(x_max, z_min, y_min * -1))
-        print("v {} {} {}".format(x_max, z_max, y_min * -1))
-        print("v {} {} {}".format(x_max, z_min, y_max * -1))
-        print("v {} {} {}".format(x_max, z_max, y_max * -1))
-        print("vt 0.375000 0.000000")
-        print("vt 0.625000 0.000000")
-        print("vt 0.625000 0.250000")
-        print("vt 0.375000 0.250000")
-        print("vt 0.625000 0.500000")
-        print("vt 0.375000 0.500000")
-        print("vt 0.625000 0.750000")
-        print("vt 0.375000 0.750000")
-        print("vt 0.625000 1.000000")
-        print("vt 0.375000 1.000000")
-        print("vt 0.125000 0.500000")
-        print("vt 0.125000 0.750000")
-        print("vt 0.875000 0.500000")
-        print("vt 0.875000 0.750000")
-        print("vn -1.0000 0.0000 0.0000")
-        print("vn 0.0000 0.0000 -1.0000")
-        print("vn 1.0000 0.0000 0.0000")
-        print("vn 0.0000 0.0000 1.0000")
-        print("vn 0.0000 -1.0000 0.0000")
-        print("vn 0.0000 1.0000 0.0000")
-        print("usemtl None")
-        print("s off")
-        #f 1/1/1 2/2/1 4/3/1 3/4/1
-        print("f ", end="")
-        print("{}/{}/{} ".format((vert + 1), (text + 1), (face + 1)), end="")
-        print("{}/{}/{} ".format((vert + 2), (text + 2), (face + 1)), end="")
-        print("{}/{}/{} ".format((vert + 4), (text + 3), (face + 1)), end="")
-        print("{}/{}/{}".format((vert + 3), (text + 4), (face + 1)))
-        #f 3/4/2 4/3/2 8/5/2 7/6/2
-        print("f ", end="")
-        print("{}/{}/{} ".format((vert + 3), (text + 4), (face + 2)), end="")
-        print("{}/{}/{} ".format((vert + 4), (text + 3), (face + 2)), end="")
-        print("{}/{}/{} ".format((vert + 8), (text + 5), (face + 2)), end="")
-        print("{}/{}/{}".format((vert + 7), (text + 6), (face + 2)))
-        #f 7/6/3 8/5/3 6/7/3 5/8/3
-        print("f ", end="")
-        print("{}/{}/{} ".format((vert + 7), (text + 6), (face + 3)), end="")
-        print("{}/{}/{} ".format((vert + 8), (text + 5), (face + 3)), end="")
-        print("{}/{}/{} ".format((vert + 6), (text + 7), (face + 3)), end="")
-        print("{}/{}/{}".format((vert + 5), (text + 8), (face + 3)))
-        #f 5/8/4 6/7/4 2/9/4 1/10/4
-        print("f ", end="")
-        print("{}/{}/{} ".format((vert + 5), (text + 8), (face + 4)), end="")
-        print("{}/{}/{} ".format((vert + 6), (text + 7), (face + 4)), end="")
-        print("{}/{}/{} ".format((vert + 2), (text + 9), (face + 4)), end="")
-        print("{}/{}/{}".format((vert + 1), (text + 10), (face + 4)))
-        #f 3/11/5 7/6/5 5/8/5 1/12/5
-        print("f ", end="")
-        print("{}/{}/{} ".format((vert + 3), (text + 11), (face + 5)), end="")
-        print("{}/{}/{} ".format((vert + 7), (text + 6), (face + 5)), end="")
-        print("{}/{}/{} ".format((vert + 5), (text + 8), (face + 5)), end="")
-        print("{}/{}/{}".format((vert + 1), (text + 12), (face + 5)))
-        #f 8/5/6 4/13/6 2/14/6 6/7/6
-        print("f ", end="")
-        print("{}/{}/{} ".format((vert + 8), (text + 5), (face + 6)), end="")
-        print("{}/{}/{} ".format((vert + 4), (text + 13), (face + 6)), end="")
-        print("{}/{}/{} ".format((vert + 2), (text + 14), (face + 6)), end="")
-        print("{}/{}/{}".format((vert + 6), (text + 7), (face + 6)))
-        print("")
+        cuboid(u_rack, x_min, x_max, y_min, y_max, z_min, z_max, vert, text, face)
         vert = vert + 8
         text = text + 14
         face = face + 6
+        if u_rotation == 0:
+            face_name = u_rack + "face"
+            face_x_min = x_min + 0.2
+            face_x_max = x_max - 0.2
+            face_y_min = y_min - 0.2
+            face_y_max = y_min
+            face_z_min = z_min + 0.2
+            face_z_max = z_max - 0.2
+            cuboid(face_name, face_x_min, face_x_max, face_y_min, face_y_max, face_z_min, face_z_max, vert, text, face)
+            vert = vert + 8
+            text = text + 14
+            face = face + 6
+        if u_rotation == 1:
+            face_name = u_rack + "face"
+            face_x_min = x_max
+            face_x_max = x_max + 0.2
+            face_y_min = y_min + 0.2
+            face_y_max = y_max - 0.2
+            face_z_min = z_min + 0.2
+            face_z_max = z_max - 0.2
+            cuboid(face_name, face_x_min, face_x_max, face_y_min, face_y_max, face_z_min, face_z_max, vert, text, face)
+            vert = vert + 8
+            text = text + 14
+            face = face + 6
+        if u_rotation == 2:
+            face_name = u_rack + "face"
+            face_x_min = x_min + 0.2
+            face_x_max = x_max - 0.2
+            face_y_min = y_max
+            face_y_max = y_max + 0.2
+            face_z_min = z_min + 0.2
+            face_z_max = z_max - 0.2
+            cuboid(face_name, face_x_min, face_x_max, face_y_min, face_y_max, face_z_min, face_z_max, vert, text, face)
+            vert = vert + 8
+            text = text + 14
+            face = face + 6
+        if u_rotation == 3:
+            face_name = u_rack + "face"
+            face_x_min = x_min - 0.2
+            face_x_max = x_min
+            face_y_min = y_min + 0.2
+            face_y_max = y_max - 0.2
+            face_z_min = z_min + 0.2
+            face_z_max = z_max - 0.2
+            cuboid(face_name, face_x_min, face_x_max, face_y_min, face_y_max, face_z_min, face_z_max, vert, text, face)
+            vert = vert + 8
+            text = text + 14
+            face = face + 6
+
 
         

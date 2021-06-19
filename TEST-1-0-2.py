@@ -63,6 +63,11 @@ for rack_sys_id in snow_data:
         u_z_center = 7
         u_z_size = 3
         u_z_unit_start = 0.05
+    # rotate 2 end racks to test rotation
+    if (u_rack == "TEST-1-0-2-0-AG17-0"):
+        u_rotation = 0
+    if (u_rack == "TEST-1-0-2-0-AG01-0"):
+        u_rotation = 2
     # store modified data
     output[rack_sys_id] = {
         "u_rack": u_rack,
