@@ -1,13 +1,13 @@
 # blender_datacenterVR
 
-## change with code
-* download the obj file from datacenterVR
-* convert to a json file with convert_blender_obj_to_json.py
-> python3 convert_blender_obj_to_json.py example.obj > example.json
-* modify the rack sizes, positions and rotation with modify.py
-> python3 modify.py example.json > final.json
-* upload the racks to servicenow with upload_racks.py
-> python3 upload_racks.py final.json
+## view the original racks
+> python3 json_to_obj.py TEST-1-0-2.json > old.obj
+import old.obj into blender
+
+## change the rack data and view the new racks
+> python3 TEST-1-0-2.py TEST-1-0-2.json > new.json
+> python3 json_to_obj.py new.json > new.obj
+import old.obj into blender
 
 ## rack rotation
 0 - facing -Y<br/>
